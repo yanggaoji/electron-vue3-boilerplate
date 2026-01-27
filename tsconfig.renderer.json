@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "esnext",
+    "jsx": "preserve",
+    "sourceMap": true,
+    "types": []
+  },
+  "include": [
+    "src/renderer/**/*",
+    "src/vue-shims.d.ts",
+    "src/renderer/types/**/*"
+  ]
+}

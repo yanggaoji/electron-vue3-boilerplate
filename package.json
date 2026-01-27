@@ -1,0 +1,38 @@
+{
+  "name": "electron-vue3-boilerplate",
+  "version": "1.0.0",
+  "description": "Electron + Vue 3 Boilerplate with IPC Example",
+  "main": "dist/main/index.js",
+  "scripts": {
+    "dev": "concurrently -k -n \"renderer,main,electron\" -c \"yellow,cyan,blue\" \"npm run dev:renderer\" \"npm run dev:main\" \"npm run electron\"",
+    "dev:renderer": "webpack serve --mode development",
+    "dev:main": "tsc -p tsconfig.main.json -w",
+    "electron": "wait-on http://localhost:8080 && cross-env NODE_ENV=development electron .",
+    "build": "npm run build:renderer && npm run build:main",
+    "build:renderer": "webpack --mode production",
+    "build:main": "tsc -p tsconfig.main.json",
+    "clean": "rimraf dist",
+    "rebuild": "npm run clean && npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.5",
+    "concurrently": "^8.2.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.8.1",
+    "electron": "^25.3.0",
+    "html-webpack-plugin": "^5.5.3",
+    "style-loader": "^3.3.3",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.1.6",
+    "vue-loader": "^17.2.2",
+    "wait-on": "^7.0.1",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
+}
